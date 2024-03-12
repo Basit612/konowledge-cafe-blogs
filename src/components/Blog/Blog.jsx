@@ -1,7 +1,7 @@
 import { GoBookmarkFill } from "react-icons/go";
 
 const Blog = ({blog, handleAddToBookmark, handleMarkAsRead}) => {
-  const {title, cover, author, author_img, reading_time, posted_date, hashtags} = blog;
+  const { id, title, cover, author, author_img, reading_time, posted_date, hashtags} = blog;
   return (
     <div className="mb-20 space-y-4">
       <img className="w-full mb-8" src={cover} alt={`Cover picture of the title ${title} `} />
@@ -25,7 +25,7 @@ const Blog = ({blog, handleAddToBookmark, handleMarkAsRead}) => {
           hashtags.map((hash , idx) => <span key={idx}><a href="">#{hash}</a></span>)
         }
       </p>
-      <button onClick={() => handleMarkAsRead(reading_time)} className="text-purple-00 font-bold underline">Mark As Read</button>
+      <button onClick={() => handleMarkAsRead(id, reading_time)} className="text-purple-00 font-bold underline">Mark As Read</button>
     </div>
   );
 };
